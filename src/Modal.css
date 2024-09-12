@@ -1,0 +1,130 @@
+/* src/Modal.css */
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  .modal-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .image-container {
+    max-height: 80%;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .modal-image {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+  }
+  
+  .zoomable:hover {
+    transform: scale(1.1);
+  }
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2.5rem;
+    cursor: pointer;
+  }
+  
+  .prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 3rem;
+    cursor: pointer;
+    user-select: none;
+    transform: translateY(-50%);
+  }
+  
+  .prev-btn {
+    left: 20px;
+  }
+  
+  .next-btn {
+    right: 20px;
+  }
+  
+  .thumbnail-container {
+    display: flex;
+    margin-top: 10px;
+  }
+  
+  .thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 0 5px;
+    border: 2px solid transparent;
+    transition: border 0.3s ease;
+  }
+  
+  .thumbnail:hover {
+    border-color: #fff;
+  }
+  
+  .thumbnail.active {
+    border-color: #fff;
+  }
+  
+  .prev-btn:hover, .next-btn:hover, .close-btn:hover {
+    color: #ff6363;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .gallery {
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .gallery {
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+    }
+  
+    .prev-btn, .next-btn {
+      font-size: 2.5rem;
+    }
+  
+    .close-btn {
+      font-size: 1.5rem;
+    }
+  }
+  
